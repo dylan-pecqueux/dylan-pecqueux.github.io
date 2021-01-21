@@ -71,7 +71,7 @@ const search = async function (event) {
   document.querySelector(".movies").innerHTML = "";
   const inputForm = document.searchForm.searchBar.value;
   const research = addPlus(inputForm);
-  const response = await fetch(`http://www.omdbapi.com/?s=${research}&apikey=${key}`);
+  const response = await fetch(`http://www.omdbapi.com/?s=${research}&apikey=836add35`);
   const object = await response.json();
   try {
     object.Search.forEach(element => {
