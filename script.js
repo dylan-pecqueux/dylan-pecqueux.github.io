@@ -1,11 +1,3 @@
-//http://www.omdbapi.com/?apikey=836add35
-//http://www.omdbapi.com/?t=hunger+games&apikey=836add35
-/*
-document.querySelector(".btn").addEventListener("click", function(event) {
-  event.preventDefault();
-})
-*/
-
 const showMovies = (title, year, poster, id) => {
   
   document.querySelector(".movies").innerHTML += `
@@ -57,7 +49,7 @@ const addPlus = (value) => {
 }
 
 const showMore = async function (id) {
-  const response = await fetch(`http://www.omdbapi.com/?i=${id}&apikey=836add35`)
+  const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=836add35`)
   const object = await response.json();
   try {
     modal(object.Title, object.Plot, object.Poster, object.Released);
@@ -71,7 +63,7 @@ const search = async function (event) {
   document.querySelector(".movies").innerHTML = "";
   const inputForm = document.searchForm.searchBar.value;
   const research = addPlus(inputForm);
-  const response = await fetch(`http://www.omdbapi.com/?s=${research}&apikey=836add35`);
+  const response = await fetch(`https://www.omdbapi.com/?s=${research}&apikey=836add35`);
   const object = await response.json();
   try {
     object.Search.forEach(element => {
