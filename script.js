@@ -89,7 +89,7 @@ const search = async function (event) {
     }, {
       threshold: [0.5]
     })
-    let items = document.querySelectorAll('.card')
+    let items = document.querySelectorAll('.card_show')
     items.forEach(item => {
       item.classList.add('not-visible')
       observer.observe(item)
