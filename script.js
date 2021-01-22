@@ -17,7 +17,6 @@ const showMovies = (title, year, poster, id) => {
     </div>
   </div>
   `
-
 }
 
 const modal = (title, description, poster, released) => {
@@ -49,9 +48,9 @@ const addPlus = (value) => {
 }
 
 const showMore = async function (id) {
-  const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=836add35`)
-  const object = await response.json();
   try {
+    const response = await fetch(`https://www.omdbapi.com/?i=${id}&apikey=836add35`)
+    const object = await response.json();
     modal(object.Title, object.Plot, object.Poster, object.Released);
   } catch (error) {
     console.error("error : ", error)
@@ -63,12 +62,12 @@ const search = async function (event) {
   document.querySelector(".movies").innerHTML = "";
   const inputForm = document.searchForm.searchBar.value;
   const research = addPlus(inputForm);
-  const response = await fetch(`https://www.omdbapi.com/?s=${research}&apikey=836add35`);
-  const object = await response.json();
   try {
+    const response = await fetch(`https://www.omdbapi.com/?s=${research}&apikey=836add35`);
+    const object = await response.json();
     object.Search.forEach(element => {
       showMovies(element.Title, element.Year, element.Poster, element.imdbID);
-    })
+    });
     let observer = new IntersectionObserver(function (entries) {
       entries.forEach(element => {
         if(element.intersectionRatio > 0.5){
@@ -88,7 +87,5 @@ const search = async function (event) {
     })
   } catch (error) {
     console.error("error : ", error)
-  } 
-  
+  }  
 }
-
